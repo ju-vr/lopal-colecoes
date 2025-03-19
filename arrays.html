@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Alunos</title>
-    <script>
-        function adicionarAluno() {
-            let lista = document.getElementById("listaAlunos");
-            let nome = prompt("Digite o nome do aluno:");
-            if (nome) {
-                let item = document.createElement("li");
-                item.textContent = nome;
-                lista.appendChild(item);
-            }
-            let continuar = confirm("Deseja adicionar mais um nome?");
-            if (!continuar) {
-                alert("Lista de alunos finalizada!");
-            } else {
-                adicionarAluno();
-            }
-        }
-    </script>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Lista de Alunos</h1>
-    <button onclick="adicionarAluno()">Adicionar Aluno</button>
-    <ul id="listaAlunos"></ul>
+    <script>
+        
+let alunos = ["Aline", "Juliana", "Leticia", "Nathaly", "Vinicios", "Arthur"];
+
+  function perguntarNome() {
+    const resposta = prompt("Deseja adicionar um nome à lista de alunos? (sim/não)").toLowerCase();
+    
+    if (resposta === "sim") {
+      const nome = prompt("Digite o nome do aluno:");
+      alunos.push(nome);
+      perguntarNome(); 
+    } else if (resposta === "não") {
+      
+      alert("Lista de alunos completa:\n" + alunos.join("\n"));
+    } else {
+      alert("Resposta inválida. Por favor, digite 'sim' ou 'não'.");
+      perguntarNome(); 
+    }
+  }
+
+  
+  perguntarNome();
+
+
+
+adicionarNomes();
+    </script>
 </body>
 </html>
